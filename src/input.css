@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    @apply max-w-[90rem] p-6 w-full mx-auto;
+}
+
+@layer components {
+    /* ---------------------------HEADER---------------------------*/
+    .header {
+        @apply bg-light relative;
+    }
+    /* .header__wrapper {
+        @apply flex justify-between items-center;
+    } */
+    .header__contact {
+        @apply md:flex md:gap-[2rem] hidden;
+    }
+    .header__top {
+        @apply md:flex md:items-center md:justify-between md:mb-[1.5rem];
+    }
+    .header__list {
+        @apply md:flex md:items-center md:justify-around md:border-t-[1px] md:border-dark md:mt-[1rem] md:py-[1rem] md:divide-x-2 md:divide-gray-400 hidden;
+    }
+    .header__list li:nth-child(n+2) {
+        @apply pl-[4rem];
+    }
+    .header__list .give {
+        @apply text-xl px-[2rem];
+    }
+    .header__top img {
+        @apply w-[14rem] h-[5rem] visible;
+    }
+    .header__top .number {
+        @apply flex gap-3;
+    }
+    .number i {
+        @apply text-lg;
+    }
+    .header__top a {
+        @apply text-lg py-[.3rem];
+    }
+    .header__top .fbtn {
+        @apply flex gap-3;
+    }
+    .branding .header__navd {
+        @apply hidden md:flex md:gap-10;
+    }
+    .branding .header__navd li a {
+        @apply font-medium text-sm text-dark hover:text-berde;
+    }
+    .header__action {
+        @apply bg-light absolute top-[5.5rem] right-0 w-0 h-[90vh] px-0 pt-0 overflow-hidden transition-all md:static md:h-fit md:w-fit md:shadow-none;
+    }
+    .header__action.open {
+        @apply w-[80%] px-10 pt-10 transition-all;
+    }
+    .header__action .header__navm {
+        @apply border-b-[2px] pb-5 flex flex-col gap-5 md:hidden;
+    }
+    .header__action .header__navm li:hover {
+        @apply text-berde;
+    }
+    .header__action .header__navm li a {
+        @apply font-medium text-xl text-dark;
+    }
+    .header__action .header__btn a {
+        @apply flex gap-[1rem] items-center hover:text-berde;
+    }
+    .header__action .header__btn{
+        @apply pt-5 flex flex-col gap-3 md:flex-row-reverse;
+    }
+    .header__action .header__kamote {
+        @apply flex gap-5;
+    }
+    .burger__menu {
+        @apply md:hidden;
+    }
+    .burger__menu span {
+        @apply w-[1.5rem] h-[.2rem] bg-gray-700 block rounded-full transition-all;
+    }
+    .burger__menu span:nth-child(2) {
+        @apply my-1
+    }
+    .burger__menu.open span:first-child {
+        @apply transform translate-y-[10px] rotate-[225deg] transition-all
+    }
+    .burger__menu.open span:last-child {
+        @apply transform translate-y-[-6px] rotate-[-225deg] transition-all
+    }
+    .burger__menu.open span:nth-child(2) {
+        @apply opacity-0 transition-all;
+    }
+
+    .block__title h1 {
+        @apply text-5xl text-center font-thin leading-[4rem] py-[2rem];
+    }
+
+     /* ---------------------------FOOTER---------------------------*/
+    .footer {
+        @apply bg-dlight py-[2rem] md:py-[1rem];
+    }
+    .footer__tp {
+        @apply md:flex md:justify-between md:items-center;
+    }
+    .footer img {
+        @apply w-[13rem] h-[5rem] mx-auto mb-[1rem] md:self-start;
+    }
+    .footer__links {
+        @apply md:flex hidden;
+    }
+    .footer__actions {
+        @apply flex flex-col gap-[.5rem] w-[13rem] mx-auto mb-[1.5rem];
+    }
+    .footer__actions a {
+        @apply text-lg text-center;
+    }
+    .footer__btm {
+        @apply border-t-2 border-greey md:flex md:justify-between;
+    }
+    .footer__btm .fb {
+        @apply flex gap-[1rem] mt-[1rem] justify-center mb-[1rem] order-last;
+    }
+    .footer__btm a {
+        @apply text-3xl text-greey md:mt-[1rem];
+    }
+    .footer__btm p {
+        @apply text-center md:mt-[1rem];
+    }
+}
+
+@layer utilities {
+    .btn {
+        @apply inline-block p-[1rem] rounded-md border-transparent border-[1px] text-sm font-normal py-[.5rem] px-[1rem];
+    }
+    .btn.bg--blue {
+        @apply bg-bluee text-light hover:bg-blue-700;
+    }
+    .btn.bg--lberde {
+        @apply bg-lberde text-light hover:bg-yeellow;
+    }
+    .btn.bg--transparent {
+        @apply bg-transparent text-dark border-lberde border-[1px] hover:bg-yeellow hover:text-light;
+    }
+    .btn.bg--yellow {
+        @apply bg-yeellow text-light;
+    }
+    .btn.bg--dberde {
+        @apply bg-transparent text-dark border-dark border-[1px] hover:bg-berde hover:text-light;
+    } 
+}

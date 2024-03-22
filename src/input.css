@@ -9,19 +9,31 @@
 @layer components {
     /* ---------------------------HEADER---------------------------*/
     .header {
-        @apply bg-light relative;
+        @apply bg-light relative border-b-[1px] border-dark md:border-transparent z-50;
     }
-    /* .header__wrapper {
+    .header__wrapper {
         @apply flex justify-between items-center;
-    } */
-    .header__contact {
-        @apply md:flex md:gap-[2rem] hidden;
+    }
+    .header__top .header__contact {
+        @apply md:flex md:gap-[2rem] md:items-center;
+    }
+    .logom img {
+        @apply w-[14rem] h-[5rem] md:hidden;
     }
     .header__top {
-        @apply md:flex md:items-center md:justify-between md:mb-[1.5rem];
+        @apply md:flex md:items-center md:justify-between md:mb-[1.5rem] hidden;
     }
-    .header__list {
-        @apply md:flex md:items-center md:justify-around md:border-t-[1px] md:border-dark md:mt-[1rem] md:py-[1rem] md:divide-x-2 md:divide-gray-400 hidden;
+    .header__btm .btn {
+        @apply py-[.2rem];
+    }
+    .header__btm .header__list {
+        @apply md:flex md:items-center md:justify-around md:border-t-[1px] md:border-dark md:mt-[1rem] md:py-[1rem] md:divide-x-[3px] md:divide-gray-400 hidden;
+    }
+    .header__btm li a {
+        @apply text-lg hover:text-berde;
+    }
+    .header__btm .give {
+        @apply hover:text-light;
     }
     .header__list li:nth-child(n+2) {
         @apply pl-[4rem];
@@ -30,12 +42,15 @@
         @apply text-xl px-[2rem];
     }
     .header__top img {
-        @apply w-[14rem] h-[5rem] visible;
+        @apply w-[14rem] h-[5rem];
     }
     .header__top .number {
-        @apply flex gap-3;
+        @apply flex gap-2;
     }
     .number i {
+        @apply text-xl ;
+    }
+    .number p {
         @apply text-lg;
     }
     .header__top a {
@@ -44,89 +59,154 @@
     .header__top .fbtn {
         @apply flex gap-3;
     }
-    .branding .header__navd {
-        @apply hidden md:flex md:gap-10;
-    }
-    .branding .header__navd li a {
-        @apply font-medium text-sm text-dark hover:text-berde;
-    }
     .header__action {
-        @apply bg-light absolute top-[5.5rem] right-0 w-0 h-[90vh] px-0 pt-0 overflow-hidden transition-all md:static md:h-fit md:w-fit md:shadow-none;
+        @apply bg-light absolute top-[8.1rem] right-0 w-0 px-0 pt-0 overflow-hidden transition-all md:static md:h-fit md:w-fit;
     }
     .header__action.open {
-        @apply w-[80%] px-10 pt-10 transition-all;
+        @apply w-screen h-lvh px-10 pt-10 transition-all;
     }
     .header__action .header__navm {
-        @apply border-b-[2px] pb-5 flex flex-col gap-5 md:hidden;
+        @apply pb-5 flex flex-col items-center gap-5 md:hidden;
     }
-    .header__action .header__navm li:hover {
+    .header__action .header__contact {
+        @apply flex flex-col items-center gap-5 md:hidden;
+    }
+    .header__contact .number {
+        @apply flex gap-2;
+    }
+    .header__contact .mbtn {
+        @apply flex flex-col gap-3;
+    }
+    .header__contact .give {
+        @apply text-xl px-[2rem];
+    }
+    .header__contact .mbtn .fb {
+        @apply text-center text-xl px-[2.5rem];
+    }
+    .header__contact .mbtn .faq {
+        @apply text-center mx-auto text-lg w-[80%] bg-yeellow text-light hover:bg-lberde;
+    }
+    .header__action .header__navm li a:hover {
         @apply text-berde;
     }
     .header__action .header__navm li a {
-        @apply font-medium text-xl text-dark;
-    }
-    .header__action .header__btn a {
-        @apply flex gap-[1rem] items-center hover:text-berde;
-    }
-    .header__action .header__btn{
-        @apply pt-5 flex flex-col gap-3 md:flex-row-reverse;
-    }
-    .header__action .header__kamote {
-        @apply flex gap-5;
+        @apply font-thin text-xl text-dark;
     }
     .burger__menu {
         @apply md:hidden;
     }
     .burger__menu span {
-        @apply w-[1.5rem] h-[.2rem] bg-gray-700 block rounded-full transition-all;
+        @apply w-[2.5rem] h-[.3rem] bg-gray-700 block transition-all;
     }
     .burger__menu span:nth-child(2) {
-        @apply my-1
+        @apply my-1;
     }
     .burger__menu.open span:first-child {
-        @apply transform translate-y-[10px] rotate-[225deg] transition-all
+        @apply transform translate-y-[4px] translate-x-[13px] rotate-[30deg] transition-all w-[1.9rem] rounded-full h-[.4rem];
     }
     .burger__menu.open span:last-child {
-        @apply transform translate-y-[-6px] rotate-[-225deg] transition-all
+        @apply transform translate-y-[-4px] translate-x-[13px] rotate-[-30deg] transition-all w-[1.9rem] rounded-full h-[.4rem];
     }
     .burger__menu.open span:nth-child(2) {
-        @apply opacity-0 transition-all;
+        @apply transition-all rounded-full h-[.4rem];
     }
-
+    /* ---------------------------FAQ TOP---------------------------*/
     .block__title h1 {
-        @apply text-5xl text-center font-thin leading-[4rem] py-[2rem];
+        @apply text-5xl md:text-8xl text-center font-thin leading-[4rem] py-[2rem] md:mb-[3rem];
+    }
+    /* ---------------------------FAQ---------------------------*/
+    .faq__wrapper {
+        @apply md:grid md:grid-cols-[_1fr,_2fr];
+    }
+    .faq__nav ul li.active {
+        @apply underline decoration-berde text-berde;
+    }
+    .faq__nav ul li a {
+        @apply text-2xl;
+    }
+    .faq__nav ul li {
+        @apply text-center mb-[.5rem] md:text-justify;
+    }
+    .faq__tab {
+        @apply h-[1020px] md:h-[900px];
+    }
+    .faq__item {
+        @apply relative opacity-0 max-h-[0rem] transition-all top-8 md:top-0 w-full;
+    }
+    .faq__item.active {
+        @apply opacity-100 transition-all z-40;
+    }
+    .faq__item h3 {
+        @apply text-2xl font-medium mb-[2rem];
+    }
+    /* ---------------------------LINKS---------------------------*/
+    .links__item {
+        @apply  bg-dlight p-[1rem] mb-[1.5rem];
+    }
+    .links__item li {
+        @apply text-justify text-lg w-[85%] ml-[3rem] leading-[2rem] md:w-full md:ml-0;
+    }
+    .links__item li i {
+        @apply text-sm text-lberde mr-[1rem] md:mr-[.3rem];
+    }
+    .links__item span {
+        @apply flex text-lg font-semibold;
+    }
+    .links__item h4 {
+        @apply flex justify-between items-center md:ml-[2rem] hover:cursor-pointer;
+    }
+    .links__item h5 {
+        @apply text-berde text-2xl opacity-0 md:opacity-100 md:mr-[1rem] md:font-semibold absolute translate-y-[-15%];
+    }
+    .links__item ul {
+        @apply max-h-[0rem] overflow-hidden transition-all flex flex-col gap-4;
+    }
+    .links__item ul.open {
+        @apply max-h-[50rem] pt-6 transition-all;
+    }
+    .links__item h4 i {
+        @apply transition-all;
+    }
+    .links__item h4 i.open {
+        @apply transform rotate-180 transition-all;
     }
 
      /* ---------------------------FOOTER---------------------------*/
     .footer {
         @apply bg-dlight py-[2rem] md:py-[1rem];
     }
+    .footer__box h4 {
+        @apply text-xl font-semibold;
+    }
+    .footer__box li a {
+        @apply text-lg;
+    }
     .footer__tp {
-        @apply md:flex md:justify-between md:items-center;
+        @apply md:grid md:grid-cols-3 md:mb-[1.5rem];
     }
     .footer img {
-        @apply w-[13rem] h-[5rem] mx-auto mb-[1rem] md:self-start;
+        @apply w-[13rem] h-[5rem] mx-auto md:block md:left-0 mb-[1rem] md:ml-0 md:w-[14rem] md:h-[5.5rem];
     }
     .footer__links {
-        @apply md:flex hidden;
+        @apply md:grid md:grid-cols-3 md:gap-[2rem] hidden;
     }
     .footer__actions {
-        @apply flex flex-col gap-[.5rem] w-[13rem] mx-auto mb-[1.5rem];
+        @apply flex flex-col gap-[.5rem] w-[13rem] mx-auto mb-[1.5rem] md:mr-0;
     }
     .footer__actions a {
-        @apply text-lg text-center;
+        @apply text-lg text-center md:text-xl;
     }
     .footer__btm {
-        @apply border-t-2 border-greey md:flex md:justify-between;
+        @apply border-t-[3px] border-greey md:flex md:justify-between;
     }
     .footer__btm .fb {
-        @apply flex gap-[1rem] mt-[1rem] justify-center mb-[1rem] order-last;
+        @apply flex gap-[1rem] mt-[1rem] justify-center mb-[1rem] order-last md:mt-[1.5rem];
     }
     .footer__btm a {
-        @apply text-3xl text-greey md:mt-[1rem];
+        @apply text-3xl text-greey;
     }
-    .footer__btm p {
-        @apply text-center md:mt-[1rem];
+    .footer__btm .p {
+        @apply text-center md:mt-[1.5rem];
     }
 }
 

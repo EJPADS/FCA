@@ -1,5 +1,5 @@
-const starNav = document.querySelectorAll(".coffee__nav__link");
-const starContent = document.querySelectorAll(".coffee__item");
+const starNav = document.querySelectorAll(".faq__nav__link");
+const starContent = document.querySelectorAll(".faq__item");
 starNav.forEach((star) => {
   star.addEventListener("click", () => {
     removeActiveStar();
